@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './screens/categories_screen.dart';
+import './screens/categories_meals_screen.dart';
+import 'utils/app-routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,10 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData();
     return MaterialApp(
       title: 'DeliMeals',
       theme: ThemeData(
         useMaterial3: true,
+        colorScheme: theme.colorScheme.copyWith(
+          primary: Colors.pink,
+          secondary: Colors.amber,
+        ),
         primarySwatch: Colors.pink,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -30,8 +37,10 @@ class MyApp extends StatelessWidget {
             ),
         fontFamily: 'Raleway',
       ),
-      home: CategoriesScreen(),
-      darkTheme: ThemeData.dark(),
+      routes: {
+        AppRoutes.HOME: (ctx) => CategoriesScreen(),
+        AppRoutes.MEALS: (ctx) => CategoriesMealsScreen(),
+      },
     );
   }
 }

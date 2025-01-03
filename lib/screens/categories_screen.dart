@@ -10,6 +10,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Vamos cozinhar?'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: GridView(
         padding: const EdgeInsets.all(25),
